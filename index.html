@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Johan Lundbäck – Portfolio</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <style>
-    
     body {
       margin: 0;
       padding: 0;
@@ -16,7 +19,11 @@
 
     header {
       text-align: center;
-      padding: 60px 20px 20px;
+      padding: 40px 20px 20px;
+      background-color: #A9DFBF;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     h1 {
@@ -26,37 +33,18 @@
 
     p.subtitle {
       font-size: 18px;
-      color: #777;
+      color: #555;
     }
 
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .carousel-item {
+      background-color: #fff;
+      padding: 40px;
+      min-height: 500px;
     }
 
-    section {
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
-
-    .project {
-      margin-bottom: 20px;
-    }
-
-    .project a {
-      color: #007acc;
-      text-decoration: none;
-    }
-
-    .project a:hover {
-      text-decoration: underline;
+    .carousel-inner {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     footer {
@@ -64,6 +52,10 @@
       padding: 40px 20px 20px;
       font-size: 14px;
       color: #aaa;
+    }
+
+    a {
+      color: #007acc;
     }
   </style>
 </head>
@@ -74,38 +66,38 @@
     <p class="subtitle">M.Sc Information Technology and Engineering at Linköping University</p>
   </header>
 
-  <main>
-    <section>
-      <h2>About me</h2>
-      <p>This portfolio shows some of my completed projects with more to come.</p>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-
-      <div class="TDDC77">
-        <strong>Jimboprojekt (TDDC77, Objektorienterad programmering)</strong><br>
-        <p>
-          A project in the subject TDDC77 completed with my classmate Felix Geivald.
-        </p>
-       <button> <a href="https://gitlab.liu.se/tddc77lab/2023/simon/johlu159-felge397/projekt1" target="_blank">GitLab-repo</a></button>
+  <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <h2>About me</h2>
+        <p>This portfolio shows some of my completed projects with more to come.</p>
       </div>
-      <br>
-      <div class="TDDE43">
-        <strong>Application components (TDDE43, Design och utveckling av interaktiva system)</strong><br>
-        <p>
-          Components and labs created/completed with my classmate Elias Forsell in the subject TDDE43.
-        </p>
-        <button><a href="https://gitlab.liu.se/elifo881/tdde43osv" target="_blank">GitLab-repo</a> </button>
+      <div class="carousel-item">
+        <h2>Projects</h2>
+        <strong>Jimboprojekt (TDDC77, Objektorienterad programmering)</strong>
+        <p>A project in the subject TDDC77 completed with my classmate Felix Geivald.</p>
+        <a href="https://gitlab.liu.se/tddc77lab/2023/simon/johlu159-felge397/projekt1" target="_blank">GitLab-repo</a>
+        <br><br>
+        <strong>Application components (TDDE43, Design och utveckling av interaktiva system)</strong>
+        <p>Components and labs created/completed with my classmate Elias Forsell in the subject TDDE43.</p>
+        <a href="https://gitlab.liu.se/elifo881/tdde43osv" target="_blank">GitLab-repo</a>
       </div>
-    </section>
+      <div class="carousel-item">
+        <h2>Contact me</h2>
+        <p>📧 <a href="mailto:johanlundback@icloud.com">johanlundback@icloud.com</a></p>
+        <p>🔗 <a href="https://github.com/johanlundback" target="_blank">GitHub</a></p>
+      </div>
+    </div>
 
-    <section>
-      <h2>Contact me</h2>
-      <p>📧 <a href="mailto:johanlundback@icloud.com">johanlundback@icloud.com</a></p>
-      <p>🔗 <a href="https://github.com/johanlundback" target="_blank">GitHub</a></p>
-    </section>
-  </main>
+    <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
   <footer>
     &copy; 2025 Johan Lundbäck

@@ -215,65 +215,54 @@
       text-align: center;
     }
 
-        .pie-container {
+    .pie-container {
       position: relative;
       width: 240px;
       height: 240px;
       margin: 3rem auto;
     }
-    
+
     .pie {
       position: absolute;
-      width: 50%;
-      height: 50%;
-      top: 50%;
-      left: 50%;
-      transform-origin: 0 0;
+      width: 100%;
+      height: 100%;
       background: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      clip-path: polygon(100% 0, 100% 100%, 0 100%);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      clip-path: path("M 120 120 L 120 0 A 120 120 0 0 1 222.57 60 Z");
+      transform-origin: center;
     }
-    
+
     .pie img {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
+      transition: filter 0.3s ease;
     }
-    
+
+    .pie1 { transform: rotate(0deg); }
+    .pie2 { transform: rotate(120deg); }
+    .pie3 { transform: rotate(240deg); }
+
     .pie:hover {
       scale: 1.08;
     }
-    
-    .pie1 {
-      transform: rotate(0deg);
-    }
-    
-    .pie2 {
-      transform: rotate(120deg);
-    }
-    
-    .pie3 {
-      transform: rotate(240deg);
-    }
-    
+
     .pie1:hover {
       background-color: #007aff;
     }
-    
+
     .pie2:hover {
       background-color: #0077b5;
     }
-    
+
     .pie3:hover {
       background-color: #333333;
     }
-    
-    .pie1:hover img,
-    .pie2:hover img,
-    .pie3:hover img {
+
+    .pie:hover img {
       filter: brightness(0) invert(1);
     }
 
@@ -304,58 +293,48 @@
 
   <main class="folder-container">
     <section class="folder-section">
-      <div class="file group" onclick="showSection('about')">
+      <div class="file" onclick="showSection('about')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
-        <div class="work-1">
-          <span class="folder-label">About Me</span>
-        </div>
+        <div class="work-1"><span class="folder-label">About Me</span></div>
       </div>
     </section>
     <section class="folder-section">
-      <div class="file group" onclick="showSection('certificates')">
+      <div class="file" onclick="showSection('certificates')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
-        <div class="work-1">
-          <span class="folder-label">My Certificates</span>
-        </div>
+        <div class="work-1"><span class="folder-label">My Certificates</span></div>
       </div>
     </section>
     <section class="folder-section">
-      <div class="file group" onclick="showSection('journey')">
+      <div class="file" onclick="showSection('journey')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
-        <div class="work-1">
-          <span class="folder-label">My Journey</span>
-        </div>
+        <div class="work-1"><span class="folder-label">My Journey</span></div>
       </div>
     </section>
     <section class="folder-section">
-      <div class="file group" onclick="showSection('projects')">
+      <div class="file" onclick="showSection('projects')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
-        <div class="work-1">
-          <span class="folder-label">My Projects</span>
-        </div>
+        <div class="work-1"><span class="folder-label">My Projects</span></div>
       </div>
     </section>
     <section class="folder-section">
-      <div class="file group" onclick="showSection('contact')">
+      <div class="file" onclick="showSection('contact')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
-        <div class="work-1">
-          <span class="folder-label">Contact Me</span>
-        </div>
+        <div class="work-1"><span class="folder-label">Contact Me</span></div>
       </div>
     </section>
   </main>
@@ -377,11 +356,7 @@
 
   <section id="projects">
     <h2>My Projects</h2>
-    <p><strong>TDDC77 (Object-oriented programming)</strong> <br> 
-      "Jimbo project" completed with my lab partner Felix Geivald in 2023. 
-      <br><br>
-      <strong>TDDE43 (Design och utveckling av interaktiva system)</strong>  <br>
-      Components and labs made with my lab partner Elias Forsell in 2024.</p>
+    <p>Project summary here...</p>
   </section>
 
   <section id="contact">

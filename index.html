@@ -215,60 +215,62 @@
       text-align: center;
     }
 
-    .pie-container {
+        .pie-container {
       position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 3rem auto 2rem;
+      width: 240px;
+      height: 240px;
+      margin: 3rem auto;
     }
-
+    
     .pie {
       position: absolute;
-      width: 100px;
-      height: 100px;
+      width: 50%;
+      height: 50%;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 0;
       background: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 100% 0 0 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
-      transform-origin: bottom right;
     }
-
-    .pie:hover {
-      scale: 1.08;
-    }
-
+    
     .pie img {
       width: 28px;
       height: 28px;
     }
-
+    
+    .pie:hover {
+      scale: 1.08;
+    }
+    
     .pie1 {
-      transform: rotate(0deg) translate(0, -100%) rotate(0deg);
+      transform: rotate(0deg);
     }
-
+    
     .pie2 {
-      transform: rotate(120deg) translate(0, -100%) rotate(-120deg);
+      transform: rotate(120deg);
     }
-
+    
     .pie3 {
-      transform: rotate(240deg) translate(0, -100%) rotate(-240deg);
+      transform: rotate(240deg);
     }
-
+    
     .pie1:hover {
       background-color: #007aff;
     }
-
+    
     .pie2:hover {
       background-color: #0077b5;
     }
-
+    
     .pie3:hover {
       background-color: #333333;
     }
-
+    
     .pie1:hover img,
     .pie2:hover img,
     .pie3:hover img {

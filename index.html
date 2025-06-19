@@ -108,7 +108,7 @@
       filter: blur(12px);
     }
 
-    /* FOLDER STYLING */
+    /* FOLDERS */
     .folder-container {
       display: flex;
       justify-content: center;
@@ -132,7 +132,7 @@
     }
 
     .work-5 {
-      background-color: transparent; /* FIX: remove solid color */
+      background-color: transparent;
       width: 100%;
       height: 100%;
       border-radius: 1rem 0 1rem 1rem;
@@ -154,17 +154,9 @@
       transform-origin: bottom;
     }
 
-    .work-4 {
-      z-index: 1;
-    }
-
-    .work-3 {
-      z-index: 2;
-    }
-
-    .work-2 {
-      z-index: 3;
-    }
+    .work-4 { z-index: 1; }
+    .work-3 { z-index: 2; }
+    .work-2 { z-index: 3; }
 
     .work-1 {
       background: linear-gradient(to top, #ffcc33, #ff9900);
@@ -183,18 +175,9 @@
       box-shadow: inset 0 -10px 20px #ff9900, inset 0 10px 20px #ffcc33;
     }
 
-    .file:hover .work-4 {
-      transform: rotateX(-20deg);
-    }
-
-    .file:hover .work-3 {
-      transform: rotateX(-30deg);
-    }
-
-    .file:hover .work-2 {
-      transform: rotateX(-38deg);
-    }
-
+    .file:hover .work-4 { transform: rotateX(-20deg); }
+    .file:hover .work-3 { transform: rotateX(-30deg); }
+    .file:hover .work-2 { transform: rotateX(-38deg); }
     .file:hover .work-1 {
       transform: rotateX(-46deg) translateY(2px);
       box-shadow: inset 0 20px 40px #ffcc33, inset 0 -20px 40px #ff9900;
@@ -204,25 +187,38 @@
       color: #fff;
       font-weight: bold;
       font-size: 1.2rem;
-      text-decoration: none;
+      text-align: center;
+      pointer-events: none;
     }
 
-    /* SECTION STYLES */
+    /* SECTIONS */
     section[id] {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
       max-width: 800px;
-      margin: 4rem auto;
+      margin: 2rem auto;
       padding: 0 2rem;
+    }
+
+    section[id].visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h2 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
       color: #fff;
+      text-align: center;
     }
 
     section p {
-      color: #ddd;
       font-size: 1rem;
+      color: #ccc;
+      text-align: center;
     }
 
     footer {
@@ -236,6 +232,7 @@
 
 <body>
 
+  <!-- Header -->
   <header class="uiverse-header">
     <div class="pyramid-loader">
       <div class="wrapper">
@@ -252,69 +249,72 @@
     </div>
   </header>
 
+  <!-- Folder menu -->
   <main class="folder-container">
+
     <section class="folder-section">
-      <div class="file group">
+      <div class="file group" onclick="showSection('about')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
         <div class="work-1">
-          <a href="#about" class="folder-label">About Me</a>
+          <span class="folder-label">About Me</span>
         </div>
       </div>
     </section>
 
     <section class="folder-section">
-      <div class="file group">
+      <div class="file group" onclick="showSection('certificates')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
         <div class="work-1">
-          <a href="#certificates" class="folder-label">My Certificates</a>
+          <span class="folder-label">My Certificates</span>
         </div>
       </div>
     </section>
 
     <section class="folder-section">
-      <div class="file group">
+      <div class="file group" onclick="showSection('journey')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
         <div class="work-1">
-          <a href="#journey" class="folder-label">My Journey</a>
+          <span class="folder-label">My Journey</span>
         </div>
       </div>
     </section>
 
     <section class="folder-section">
-      <div class="file group">
+      <div class="file group" onclick="showSection('projects')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
         <div class="work-1">
-          <a href="#projects" class="folder-label">My Projects</a>
+          <span class="folder-label">My Projects</span>
         </div>
       </div>
     </section>
 
     <section class="folder-section">
-      <div class="file group">
+      <div class="file group" onclick="showSection('contact')">
         <div class="work-5"></div>
         <div class="work-4"></div>
         <div class="work-3"></div>
         <div class="work-2"></div>
         <div class="work-1">
-          <a href="#contact" class="folder-label">Contact Me</a>
+          <span class="folder-label">Contact Me</span>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Placeholder content for sections -->
+  <!-- Content sections -->
   <section id="about">
     <h2>About Me</h2>
     <p>This is where your personal info goes.</p>
@@ -343,6 +343,22 @@
   <footer>
     &copy; 2025 Johan Lundbäck
   </footer>
+
+  <!-- Script to show sections -->
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll("section[id]");
+      sections.forEach(section => {
+        section.classList.remove("visible");
+      });
+
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add("visible");
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  </script>
 
 </body>
 </html>

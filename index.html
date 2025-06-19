@@ -74,14 +74,50 @@
       color:#000000;
     }
     
+        .uiverse-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #10002b 0%, #240046 30%, #3c096c 60%, #5a189a 80%, #9d4edd 100%);
+    }
+    
+    .uiverse-glass {
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .uiverse-text h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+    }
+    
+    .uiverse-text .subtitle {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+    
   </style>
 </head>
 <body>
 
-  <header>
+  <header class="uiverse-header">
+  <div class="uiverse-glass"></div>
+  <div class="uiverse-text">
     <h1>Johan Lundbäck</h1>
     <p class="subtitle">M.Sc Information Technology and Engineering at Linköping University</p>
-  </header>
+  </div>
+</header>
+
 
   <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">

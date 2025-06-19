@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johan Lundbäck – Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -15,6 +17,7 @@
       color: #fff;
     }
 
+    /* HEADER */
     .uiverse-header {
       display: flex;
       align-items: center;
@@ -71,27 +74,27 @@
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
 
-    .side1 {
+    .pyramid-loader .wrapper .side1 {
       transform: rotateZ(-30deg) rotateY(90deg);
       background: conic-gradient(#2BDEAC, #F028FD, #D8CCE6, #2F2585);
     }
 
-    .side2 {
+    .pyramid-loader .wrapper .side2 {
       transform: rotateZ(30deg) rotateY(90deg);
       background: conic-gradient(#2F2585, #D8CCE6, #F028FD, #2BDEAC);
     }
 
-    .side3 {
+    .pyramid-loader .wrapper .side3 {
       transform: rotateX(30deg);
       background: conic-gradient(#2F2585, #D8CCE6, #F028FD, #2BDEAC);
     }
 
-    .side4 {
+    .pyramid-loader .wrapper .side4 {
       transform: rotateX(-30deg);
       background: conic-gradient(#2BDEAC, #F028FD, #D8CCE6, #2F2585);
     }
 
-    .shadow {
+    .pyramid-loader .wrapper .shadow {
       width: 60px;
       height: 60px;
       background: #8B5AD5;
@@ -105,6 +108,7 @@
       filter: blur(12px);
     }
 
+    /* FOLDERS */
     .folder-container {
       display: flex;
       justify-content: center;
@@ -136,6 +140,7 @@
       top: 0;
       left: 0;
       z-index: 0;
+      transition: all 0.3s ease;
     }
 
     .work-4,
@@ -145,8 +150,8 @@
       inset: 4px;
       border-radius: 1rem;
       background-color: #dcdcdc;
-      transform-origin: bottom;
       transition: all 0.3s ease;
+      transform-origin: bottom;
     }
 
     .work-4 { z-index: 1; }
@@ -162,12 +167,12 @@
       border-radius: 1rem;
       z-index: 4;
       transform-origin: bottom;
+      transition: all 0.3s ease;
       display: flex;
       align-items: flex-end;
       justify-content: center;
       padding-bottom: 1.2rem;
       box-shadow: inset 0 -10px 20px #ff9900, inset 0 10px 20px #ffcc33;
-      transition: all 0.3s ease;
     }
 
     .file:hover .work-4 { transform: rotateX(-20deg); }
@@ -186,6 +191,7 @@
       pointer-events: none;
     }
 
+    /* SECTIONS */
     section[id] {
       display: none;
       opacity: 0;
@@ -215,57 +221,6 @@
       text-align: center;
     }
 
-    .pie-container {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      margin: 3rem auto;
-      border-radius: 50%;
-    }
-
-    .pie {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: white;
-      clip-path: polygon(50% 50%, 100% 0, 100% 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform-origin: center;
-      transition: all 0.3s ease;
-    }
-
-    .pie1 { transform: rotate(0deg); }
-    .pie2 { transform: rotate(120deg); }
-    .pie3 { transform: rotate(240deg); }
-
-    .pie img {
-      width: 30px;
-      height: 30px;
-      transform: rotate(-60deg);
-    }
-
-    .pie2 img {
-      transform: rotate(-180deg);
-    }
-
-    .pie3 img {
-      transform: rotate(-300deg);
-    }
-
-    .pie:hover {
-      scale: 1.05;
-    }
-
-    .pie1:hover { background-color: #007aff; }
-    .pie2:hover { background-color: #0077b5; }
-    .pie3:hover { background-color: #333333; }
-
-    .pie:hover img {
-      filter: brightness(0) invert(1);
-    }
-
     footer {
       text-align: center;
       padding: 40px 20px 20px;
@@ -274,7 +229,10 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- Header -->
   <header class="uiverse-header">
     <div class="pyramid-loader">
       <div class="wrapper">
@@ -291,9 +249,57 @@
     </div>
   </header>
 
+  <!-- Folder menu -->
   <main class="folder-container">
-    <!-- Mappar som aktiverar varje sektion -->
-    <!-- ... Samma som tidigare ... -->
+
+    <section class="folder-section">
+      <div class="file group" onclick="showSection('about')">
+        <div class="work-5"></div>
+        <div class="work-4"></div>
+        <div class="work-3"></div>
+        <div class="work-2"></div>
+        <div class="work-1">
+          <span class="folder-label">About Me</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="folder-section">
+      <div class="file group" onclick="showSection('certificates')">
+        <div class="work-5"></div>
+        <div class="work-4"></div>
+        <div class="work-3"></div>
+        <div class="work-2"></div>
+        <div class="work-1">
+          <span class="folder-label">My Certificates</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="folder-section">
+      <div class="file group" onclick="showSection('journey')">
+        <div class="work-5"></div>
+        <div class="work-4"></div>
+        <div class="work-3"></div>
+        <div class="work-2"></div>
+        <div class="work-1">
+          <span class="folder-label">My Journey</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="folder-section">
+      <div class="file group" onclick="showSection('projects')">
+        <div class="work-5"></div>
+        <div class="work-4"></div>
+        <div class="work-3"></div>
+        <div class="work-2"></div>
+        <div class="work-1">
+          <span class="folder-label">My Projects</span>
+        </div>
+      </div>
+    </section>
+
     <section class="folder-section">
       <div class="file group" onclick="showSection('contact')">
         <div class="work-5"></div>
@@ -305,34 +311,52 @@
         </div>
       </div>
     </section>
+
   </main>
+
+  <!-- Content sections -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm currently studying at Linköping's university.</p>
+  </section>
+
+  <section id="certificates">
+    <h2>My Certificates</h2>
+    <p>To be continued.</p>
+  </section>
+
+  <section id="journey">
+    <h2>My Journey</h2>
+    <p>My first coding project was ...</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <p> <Strong>TDDC77 (Object-oriented programming)</Strong> <br>
+      "Jimbo project" completed with my lab partner Felix Geivald in 2023.
+    <br><br> 
+      <strong>TDDE43 (Design och utveckling av interaktiva system)</strong> <br>
+      Components and labs made with my lab partner Elias Forsell in 2024.
+    </p>
+  </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Choose a platform to reach out:</p>
-    <div class="pie-container">
-      <a href="mailto:johanlundback@icloud.com" class="pie pie1" title="iCloud Mail">
-        <img src="https://img.icons8.com/ios-filled/50/000000/apple-mail.png" alt="Mail" />
-      </a>
-      <a href="https://www.linkedin.com/in/johan-lundbäck-123b99222" class="pie pie2" title="LinkedIn" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/50/0077b5/linkedin.png" alt="LinkedIn" />
-      </a>
-      <a href="https://github.com/johanlundback" class="pie pie3" title="GitHub" target="_blank">
-        <img src="https://img.icons8.com/ios-glyphs/50/000000/github.png" alt="GitHub" />
-      </a>
-    </div>
+    <p>WIP</p>
   </section>
 
   <footer>
     &copy; 2025 Johan Lundbäck
   </footer>
 
+  <!-- Script to show sections -->
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll("section[id]");
       sections.forEach(section => {
         section.classList.remove("visible");
       });
+
       const target = document.getElementById(id);
       if (target) {
         target.classList.add("visible");
@@ -340,5 +364,6 @@
       }
     }
   </script>
+
 </body>
 </html>

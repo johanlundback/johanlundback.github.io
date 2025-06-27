@@ -298,13 +298,65 @@
       transform: translate3d(0, 0, 1em);
     }
 
+        .glitch-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .glitch {
+      position: relative;
+      font-size: 2.2rem;
+      color: white;
+      letter-spacing: 2px;
+    }
+    
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    
+    .glitch::before {
+      animation: glitchTop 1s infinite linear alternate-reverse;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+      color: #ff00c8;
+    }
+    
+    .glitch::after {
+      animation: glitchBottom 1s infinite linear alternate-reverse;
+      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+      color: #00fff9;
+    }
+    
+    @keyframes glitchTop {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, -2px); }
+      40% { transform: translate(-2px, 2px); }
+      60% { transform: translate(2px, -2px); }
+      80% { transform: translate(2px, 2px); }
+      100% { transform: translate(0); }
+    }
+    
+    @keyframes glitchBottom {
+      0% { transform: translate(0); }
+      20% { transform: translate(2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(-2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header class="uiverse-header">
+    <!-- Header -->
+    <header class="uiverse-header">
     <div class="pyramid-loader">
       <div class="wrapper">
         <span class="side side1"></span>
@@ -314,11 +366,12 @@
         <span class="shadow"></span>
       </div>
     </div>
-    <div class="uiverse-text">
-      <h1>Johan Lundbäck</h1>
+    <div class="glitch-text">
+      <h1 class="glitch" data-text="JOHAN LUNDBÄCK">JOHAN LUNDBÄCK</h1>
       <p class="subtitle">M.Sc Information Technology and Engineering at Linköping University</p>
     </div>
   </header>
+
 
   <!-- Folder menu -->
   <main class="folder-container">
